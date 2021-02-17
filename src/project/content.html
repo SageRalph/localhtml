@@ -19,21 +19,16 @@
     the full functionality of the document is available offline just by opening
     the HTML file (all the source code and state data are included in the file).
     You can create pages in content.html with forms which can save arbitrary
-    data. Form controls serialise to a key matching their name property.
+    data. Form controls serialise to a key matching their name property. What
+    name you choose only matters if you want to implement your own logic with
+    JavaScript, but every form element must have a unique name for it to be
+    saved.
   </p>
-  <p>e.g. input name="fileNameField" is saved to data["fileNameField"]</p>
+  <p>e.g. &ltinput name="fileNameField"/&gt is saved to data["fileNameField"]</p>
   <label>
     <strong>File Name</strong>
     <input type="text" name="fileNameField" />
   </label>
-  <p>
-    What name you choose only matters if you want to implement your own logic
-    with JavaScript, but every form element must have a unique name for it to be
-    saved. You can also add hidden inputs to the form just for use in
-    JavaScript.
-  </p>
-  <!-- opt_showInfo controls whether the side bar is displayed -->
-  <input type="hidden" name="opt_showInfo" value="false" />
   <p>
     Users can add extra pages using the controls at the bottom of the page.
     These pages can only be full-page rich text editors, but can be added,
@@ -60,9 +55,9 @@
     reordered or deleted by the user.
   </p>
   <p>
-    The data for all forms is saved as one object, so field names must be
-    unique across all forms. However, this also means that you can move fields
-    from one form to another without breaking backwards compatibility.
+    The data for all forms is saved as one object, so field names must be unique
+    across all forms. However, this also means that you can move fields from one
+    form to another without breaking backwards compatibility.
   </p>
   <p>
     The data object is generated when needed by reading the form controls, so
