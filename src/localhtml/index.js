@@ -10,7 +10,7 @@ import "../../node_modules/quill/dist/quill.bubble.css";
 import "../../node_modules/quill/dist/quill.snow.css";
 
 import { addPage, initQuills } from "./pages";
-import { blink, updateCheck } from "./meta";
+import { blink, updateCheck, sheetName } from "./meta";
 import { toggleButtonSetup, infoButtonSetup } from "./menu";
 import {
   formClear,
@@ -19,6 +19,8 @@ import {
   formLoad,
   formSave,
   setNavWarning,
+  getSaveData,
+  doFormLoad,
 } from "./form";
 
 /**
@@ -76,3 +78,11 @@ $(window).on("keydown", function (event) {
     }
   }
 });
+
+// These function are exposed after building
+// This may be useful if the sheet is included as part of a webapp.
+window.getSaveData = getSaveData;
+window.doFormLoad = doFormLoad;
+window.sheetName = sheetName;
+window.formClear = formClear;
+window.$ = $;
