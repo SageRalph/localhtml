@@ -40,11 +40,11 @@ export function infoButtonSetup() {
   if (location.hostname !== "") {
     $("#opt_showInfo")
       .prop("disabled", true)
-      .attr("title", "Save the sheet and then open it to enable this feature");
+      .attr("title", "Save the sheet locally to enable this feature");
   } else {
     $("#opt_showInfo")
       .prop("disabled", false)
-      .attr("title", "Toggle display of the wiki sidebar")
+      .attr("title", "Toggle display of the sidebar")
       .on("click", showInfo);
   }
   showInfo();
