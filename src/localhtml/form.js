@@ -12,14 +12,11 @@ import { sheetName } from "./meta";
 import { clearQuills, getQuillPages, setQuillPages } from "./pages";
 import { migrations } from "../project/overrides.js";
 
-var navWarn = false;
-
 /**
  * Resets the form and removes all Quill pages.
  */
 export function formClear() {
-  if (navWarn && !confirm("Are you sure you want to clear the document?"))
-    return;
+  if (!confirm("Are you sure you want to clear the document?")) return;
 
   // Clear forms
   $("form").trigger("reset");
@@ -34,8 +31,6 @@ export function formClear() {
 
   // Destroy all Quill pages
   setQuillPages();
-
-  clearNavWarning();
 }
 
 /**
@@ -87,7 +82,6 @@ export function formSave(event) {
   var blob = new Blob([getPageHTML()], { type: "text/html;charset=utf-8" });
   var fname = sheetName(data);
   saveAs(blob, fname);
-  clearNavWarning();
 
   console.log("SAVED " + fname);
   // console.log(data);
@@ -124,7 +118,7 @@ export function formExport() {
  * Then overrides the sheets data with the loaded data, migrating if needed.
  */
 export function formImport() {
-  if (navWarn && !confirm("Any unsaved changes will be lost. Proceed?")) return;
+  if (!confirm("Any unsaved changes will be lost. Proceed?")) return;
 
   console.log("LOADING FROM IMPORT");
 
@@ -191,22 +185,4 @@ function getPageHTML() {
   }
 
   return "<!DOCTYPE html>" + html;
-}
-
-/**
- * Enables the warning when navigating away from the site.
- */
-export function setNavWarning() {
-  navWarn = true;
-  window.onbeforeunload = function () {
-    return true;
-  };
-}
-
-/**
- * Disables the warning when navigating away from the site.
- */
-export function clearNavWarning() {
-  navWarn = false;
-  window.onbeforeunload = null;
 }

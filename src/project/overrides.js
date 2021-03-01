@@ -2,6 +2,7 @@
  * This file contains custom logic to override the default behavior of localhtml
  ******************************************************************************/
 import { versionBefore } from "../localhtml/meta.js";
+import { setDataChangedAction } from "../localhtml/index.js";
 
 // Import any additional files you want webpack to bundle. CSS, JS, fonts, etc.
 import "./styles.css";
@@ -37,3 +38,13 @@ export function migrations(data) {
   }
   return data;
 }
+
+/**
+ * Called whenever the contents of the sheet is changed.
+ */
+setDataChangedAction(function () {
+  // Prevent accidental navigation
+  window.onbeforeunload = function () {
+    return true;
+  };
+});

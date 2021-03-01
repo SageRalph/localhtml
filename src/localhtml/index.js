@@ -18,10 +18,10 @@ import {
   formImport,
   formLoad,
   formSave,
-  setNavWarning,
   getSaveData,
   doFormLoad,
 } from "./form";
+import { onDataChange } from "../project/overrides";
 
 /**
  * Initial page setup.
@@ -32,7 +32,7 @@ $(() => {
 
   console.log("SETUP FORM");
   formLoad();
-  $("form, .quill_field").on("change", setNavWarning);
+  $("form, .quill_field").on("change", dataChanged);
 
   console.log("SETUP TOGGLE BUTTONS");
   toggleButtonSetup();
@@ -79,10 +79,22 @@ $(window).on("keydown", function (event) {
   }
 });
 
+/**
+ * Called whenever the contents of the sheet is changed.
+ */
+var dataChangedAction;
+export function dataChanged() {
+  if (dataChangedAction) dataChangedAction();
+}
+export function setDataChangedAction(f) {
+  dataChangedAction = f;
+}
+
 // These function are exposed after building
 // This may be useful if the sheet is included as part of a webapp.
 window.getSaveData = getSaveData;
 window.doFormLoad = doFormLoad;
 window.sheetName = sheetName;
 window.formClear = formClear;
+window.setDataChangedAction = setDataChangedAction;
 window.$ = $;

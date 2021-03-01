@@ -5,7 +5,7 @@
 
 import $ from "jquery";
 import Quill from "quill";
-import { setNavWarning } from "./form";
+import { dataChanged } from "./index";
 import { randomString } from "./meta";
 
 var quills = [];
@@ -188,7 +188,7 @@ function setupQuill(element) {
   var child = $("<div></div>").get(0);
   $(element).append(child);
   var editor = new Quill(child, options);
-  editor.on("text-change", setNavWarning);
+  editor.on("text-change", dataChanged);
   quills.push({
     name: $(element).attr("name"),
     editor,
