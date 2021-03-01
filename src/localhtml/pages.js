@@ -188,11 +188,24 @@ function setupQuill(element) {
   var child = $("<div></div>").get(0);
   $(element).append(child);
   var editor = new Quill(child, options);
-  editor.on("text-change", dataChanged);
+  editor.on("text-change", quillChangeCooldown);
   quills.push({
     name: $(element).attr("name"),
     editor,
   });
+}
+
+// Limit the number of calls to dataChanged
+// Calls are delayed by 5s and subsequent calls are ignored until then
+var quillCooldown = false;
+function quillChangeCooldown() {
+  if (!quillCooldown) {
+    quillCooldown = true;
+    setTimeout(function () {
+      quillCooldown = false;
+      dataChanged();
+    }, 5000);
+  }
 }
 
 /**
