@@ -34,10 +34,6 @@
         "webpack-cli": "^3.3.12"
     },
     "dependencies": {
-        "file-saver": "^2.0.2",
-        "jquery": "^3.5.1",
-        "jquery-deserialize": "^2.0.0-rc1",
-        "jquery-serializejson": "^2.9.0",
-        "quill": "^1.3.7"
+        "localhtml-lib": "github:DavidRalph/localhtml-lib"
     }
 }
