@@ -17,14 +17,7 @@ First install dependencies using `npm install --dev`
 
 Build the site for development (unminified) by running `npm run build-debug`
 
-Build the site for production by running any of:
-
-| Command             | Action                                                            |
-| ------------------- | ----------------------------------------------------------------- |
-| npm run build       | Builds the site without bumping the version                       |
-| npm run build-patch | Builds the site and bumps the patch version (e.g. 1.2.3 -> 1.2.4) |
-| npm run build-minor | Builds the site and bumps the minor version (e.g. 1.2.3 -> 1.3.0) |
-| npm run build-major | Builds the site and bumps the major version (e.g. 1.2.3 -> 2.0.0) |
+Build the site for production by running `npm run build`
 
 The output should be a single html `docs/index.html` which is a static page containing everything needed to work offline. You may want to host his using GitHub Pages or your static hosting service of choice. If not using GitHub Pages you may want to add `/docs/` to your `.gitignore` file, otherwise:
 

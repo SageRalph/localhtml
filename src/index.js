@@ -4,7 +4,7 @@ localhtml setup and custom scripts
 
 import "./styles.css";
 import "localhtml-lib";
-import { version } from "../package.json";
+import pkg from "../package.json";
 
 /**
  * Return a suggested filename when saving the sheet.
@@ -48,7 +48,7 @@ function dataChangedAction() {
 
 new localhtml({
   // The semver version of the sheet - Required for automatic updates
-  version: version,
+  version: pkg.version,
 
   // The document editor will be injected here
   documentContainer: "#documentContainer",
