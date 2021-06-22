@@ -77,7 +77,7 @@ new localhtml({
   // Function for determining the suggested filename when saving
   customSheetName: customSheetName,
 
-  // Target URL for the the info frame
+  // Default URL for Browser widgets. A non-string value will disable them.
   infoURL: "https://example.com",
 
   // URL of the latest version of the sheet - Required for automatic updates

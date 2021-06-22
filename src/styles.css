@@ -8,33 +8,27 @@ These are some example stylings.
   background-size: cover;
 }
 
-#infoContainer {
-  right: 0;
-  width: 25rem;
-  position: fixed;
-}
-
 .lh-page {
   padding: 3rem;
 }
 
-form .lh-quill-field {
+main form .lh-quill-field {
   border: 1px solid lightgray;
   min-width: 80%;
   padding: 1rem;
 }
 
-form p {
+main form p {
   text-align: justify;
 }
 
-form label {
+main form label {
   display: block;
   padding: 1rem;
   padding-left: 0;
   margin: 0.5rem 0;
 }
 
-form label input {
+main form label input {
   margin: 0 1rem;
 }
