@@ -81,7 +81,7 @@ new localhtml({
   infoURL: "https://example.com",
 
   // URL of the latest version of the sheet - Required for automatic updates
-  latestVersionURL: "https://davidralph.github.io/localhtml/",
+  latestVersionURL: "https://SageRalph.github.io/localhtml/",
 
   // If true, ctrl+s will prompt saving the sheet
   hotkeysEnabled: true,
